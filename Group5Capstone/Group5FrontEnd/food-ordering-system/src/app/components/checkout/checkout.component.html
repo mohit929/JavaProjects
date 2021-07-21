@@ -1,0 +1,39 @@
+<!-- Component for checkout form -->
+<div class="row">
+    <div class="col-75">
+        <div class="container">
+            <form action="/action_page.php" #orderForm="ngForm" (ngSubmit)="register(orderForm.value)">
+
+                <div class="row">
+                    <div class="col-50">
+                        <h3 style="font-weight:bold;"> Fill Details</h3>
+                        <label for="fname"><i class="fa fa-user"></i> First Name</label>
+                        <input type="text" id="fname" required pattern=[A-Za-z]{2,} autofocus [(ngModel)]="customer.first_name" name="firstName">
+                        <label for="fname"><i class="fa fa-user"></i> Last Name</label>
+                        <input type="text" id="fname" name="lastName" required pattern=[A-Za-z]{2,} autofocus [(ngModel)]="customer.last_name">
+                        <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                        <input type="text" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [(ngModel)]="customer.email" autofocus placeholder="xyz@example.com">
+                        <label for="adr"><i class="fa fa-address-card-o"></i> City</label>
+                        <input type="text" id="adr" name="city" required pattern=[A-Za-z]{3,} autofocus [(ngModel)]="address.city" placeholder="542 W. 15th Street">
+                        <label for="city"><i class="fa fa-institution"></i> Country</label>
+                        <input type="text" id="city" name="country" required pattern=[A-Za-z]{2,} [(ngModel)]="address.country" autofocus placeholder="India">
+                        <label for="city"><i class="fa fa-institution"></i> State</label>
+                        <input type="text" id="city" name="state" required pattern=[A-Za-z]{2,} [(ngModel)]="address.state" autofocus placeholder="enter your state">
+                        <label for="city"><i class="fa fa-institution"></i> Street</label>
+                        <input type="text" id="city" name="street" required [(ngModel)]="address.street" autofocus placeholder="enter your street">
+                        <label for="city"><i class="fa fa-institution"></i> Zipcode</label>
+                        <input type="text" id="city" name="zipcode" required pattern=[0-9]{6} autofocus [(ngModel)]="address.zipcode" placeholder="enter your zip code">
+                        <label for="city"><i class="fa fa-institution"></i> Total Quantity</label>
+                        <input type="text" id="city" [value]="total_quantity" disabled>
+                        <label for="city"><i class="fa fa-institution"></i> Total Price</label>
+                        <input type="text" id="city" [value]="total_price" disabled>
+                    </div>
+                </div>
+
+                <input type="submit" value="Continue to checkout" [disabled]="orderForm.form.invalid" class="btn">
+            </form>
+        </div>
+    </div>
+
+
+</div>

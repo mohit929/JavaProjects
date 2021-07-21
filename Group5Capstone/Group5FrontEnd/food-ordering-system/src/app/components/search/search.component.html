@@ -1,0 +1,9 @@
+<!-- Searching for the partiular item from all the products -->
+<ng-container *ngFor="let rest of restaurant">
+    <div *ngIf="rest.dishname.toLowerCase()===dish.toLowerCase()" class="container">
+        <img src="{{rest.url}}" style="width: 100%;height: 200px;">
+        <h3 class="rupee">{{rest.dishname}}</h3>
+        <h3 class="rupee"><i aria-hidden="true"></i>{{rest.price|currency:'INR'}}</h3><br>
+        <a class="cart-button" style="color:black;font-weight: bold;border:1px solid;" id={{rest.id}} (click)="OnAddCart(rest.id)">Add to cart </a>
+    </div>
+</ng-container>

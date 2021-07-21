@@ -1,0 +1,49 @@
+<!--Component for showing the details in the cart-->
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:50%">Product & Product Name</th>
+                <th style="width:10%">Price</th>
+
+                <th style="width:22%" class="text-center">Subtotal</th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rest of restaurants">
+                <td data-th="Product">
+                    <div class="row">
+                        <div style="height:200px;width:200px;"><img src={{rest.url}} alt="..." class="img-responsive" /></div>
+
+                        <div>
+                            <h2>{{rest.dishname}}</h2>
+
+                        </div>
+                    </div>
+                </td>
+                <td data-th="Price">{{rest.price|currency:'INR'}}</td>
+
+                <td data-th="Subtotal" class="text-center">{{rest.price|currency:'INR'}}</td>
+                <td class="actions" data-th="">
+                    <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+
+            <tr>
+
+                <td colspan="2" class="hidden-xs"></td>
+                &ensp;&ensp;&ensp;&ensp;
+                <td class="hidden-xs text-center"><strong>Total Price:{{total_price|currency:'INR'}}</strong></td>
+                <td> <button [disabled]="valueEnable" routerLink="/checkout"><a  class="btn btn-success btn-block" >Checkout <i class="fa fa-angle-right"></i></a> </button></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
